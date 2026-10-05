@@ -22,21 +22,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "libtas";
-  version = "1.4.7";
+  version = "1.4.8";
 
   src = fetchFromGitHub {
     owner = "clementgallet";
     repo = "libTAS";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-TDFpLleY7+uBjcIqF9e7mA5eQN2s+U04qVQRvpfFfcQ=";
+    hash = "sha256-2b+Cqzk3VDhBV+Wke37z6VrVymavZq3xGiJDY9uQ5G4=";
   };
-  patches = [
-    # Fix build with gcc15
-    (fetchpatch2 {
-      url = "https://github.com/clementgallet/libTAS/commit/9699b158c522cf778bcdf626d0520fdd0a8b83aa.patch?full_index=1";
-      hash = "sha256-vM1f6rvKIFyzEGJ7k+b/Zp4gAv8u6mdDUD5evV+hCJU=";
-    })
-  ];
 
   postPatch = ''
     # don't try to setcap in a nix builder
