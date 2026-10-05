@@ -31,6 +31,13 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-2b+Cqzk3VDhBV+Wke37z6VrVymavZq3xGiJDY9uQ5G4=";
   };
 
+  patches = [
+    # Don't assume location to llavapipe ICD
+    ./select-lavapipe-icd.patch
+    # Preserve errno around isatty so hook logging stays transparent to the game
+    ./preserve-errno-in-logging.patch
+  ];
+
   postPatch = ''
     # don't try to setcap in a nix builder
     substituteInPlace src/program/Makefile.am \

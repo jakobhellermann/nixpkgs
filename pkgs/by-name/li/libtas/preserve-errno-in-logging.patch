@@ -1,0 +1,21 @@
+diff --git a/src/library/logging.cpp b/src/library/logging.cpp
+--- a/src/library/logging.cpp
++++ b/src/library/logging.cpp
+@@ -30,6 +30,7 @@
+
+ #include <stdlib.h>
+ #include <unistd.h> // For isatty
++#include <cerrno>
+ #include <cstdarg>
+ #include <cstring>
+ #include <inttypes.h> // PRI stuff
+@@ -98,7 +99,9 @@
+     int size = 0;
+
+     /* We only print colors if displayed on a terminal */
++    int saved_errno = errno;
+     bool isTerm = isatty(STDERR_FILENO);
++    errno = saved_errno;
+     if (isTerm) {
+         /* Write the header text in white */
+         strncat(s, ANSI_COLOR_LIGHT_GRAY, maxsize-size-1);
