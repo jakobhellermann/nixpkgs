@@ -86,7 +86,7 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://github.com/clementgallet/libTAS/blob/${finalAttrs.src.rev}/CHANGELOG.md";
     description = "GNU/Linux software to give TAS tools to games";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ skyrina ];
+    maintainers = with lib.maintainers; [ skyrina jakobhellermann ];
     mainProgram = "libTAS";
     platforms = [
       "i686-linux"

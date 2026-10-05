@@ -12881,6 +12881,12 @@
     githubId = 5283991;
     name = "Jake Waksbaum";
   };
+  jakobhellermann = {
+    email = "jakob.hellermann@protonmail.com";
+    github = "jakobhellermann";
+    githubId = 22177966;
+    name = "Jakob Hellermann";
+  };
   jakubgs = {
     email = "jakub@gsokolowski.pl";
     github = "jakubgs";
